@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Ränge – HomieCraft SMP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ---------------------- */
+/* BUTTONS FÜR RÄNGE      */
+/* ---------------------- */
+.rank-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+.rank-buttons button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+}
+.rank-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px currentColor;
+}
+
+/* ---------------------- */
+/* "Wir suchen..." Bereich */
+/* ---------------------- */
+.hiring {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    background: rgba(255,255,255,0.05);
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+/* ---------------------- */
+/* RANG KARTEN GRADIENT    */
+/* ---------------------- */
+.info-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+    padding: 25px;
+    border-radius: 12px;
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
+}
+
+/* Hover Overlay */
+.card::after {
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(255,255,255,0);
+    transition: 0.3s;
+    border-radius: 12px;
+}
+.card:hover::after {
+    background: rgba(255,255,255,0.08);
+}
+
+/* GRADIENT HINTERGRÜNDE */
+.rank-spieler { background: linear-gradient(135deg, #9ca3af, #6b7280); }
+.rank-premium { background: linear-gradient(135deg, #FFAA00, #FFD54F); }
+.rank-supreme { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+.rank-premium { background: linear-gradient(135deg, #ffaa00, #ffcc33, #ff9900); color: #000; }
+.rank-homie { background: linear-gradient(135deg, #a855f7, #c084fc); }
+.rank-creator { background: linear-gradient(135deg, #ec4899, #f472b6); margin-top:40px; }
+.rank-builder { background: linear-gradient(135deg, #22c55e, #4ade80); margin-bottom:40px; }
+.rank-support { background: linear-gradient(135deg, #facc15, #fde047); color:#000; }
+.rank-mod { background: linear-gradient(135deg, #f87171, #fca5a5); }
+.rank-developer { background: linear-gradient(135deg, #55FFFF, #22d3ee); color:#000; }
+.rank-admin { background: linear-gradient(135deg, #ef4444, #f87171); }
+.rank-owner { background: linear-gradient(135deg, #b91c1c, #f87171); }
+
+/* TEXT STYLE */
+.card h3 { margin-bottom: 12px; font-family: 'Orbitron', sans-serif; font-size: 20px; }
+.card p { font-size: 15px; line-height: 1.5; margin-bottom:8px; }
+
+<style>
+:root {
+  --owner:#B91C1C;
+  --admin:#B91C1C;
+  --developer:#55FFFF;
+  --mod:#F87171;
+  --support:#FACC15;
+  --builder:#22C55E;
+  --creator:#EC4899;
+  --homie:#A855F7;
+  --vip:#F5F5F5;
+  --supreme:#1E3A8A;
+  --premium:#F59E0B;
+  --spieler:#9CA3AF;
+}
+
+.prefix {
+  background:black;
+  padding:2px 6px;
+  border-radius:4px;
+  font-family: monospace;
+}
+/* Ränge */
+.prefix-owner { color:var(--owner); font-weight:bold; }
+.prefix-admin { color:var(--admin); font-weight:bold; }
+.prefix-developer { color:var(--developer); font-weight:bold; }
+.prefix-mod { color:var(--mod); font-weight:bold; }
+.prefix-support { color:var(--support); }
+.prefix-builder { color:var(--builder); }
+.prefix-creator { color:var(--creator); font-weight:bold; }
+.prefix-homie { color:var(--homie); font-weight:bold; }
+.prefix-vip { color:var(--vip); font-weight:bold; }
+.prefix-supreme { color:var(--supreme); }
+.prefix-premium { color:var(--premium); }
+.prefix-spieler { color:var(--spieler); }
+</style>
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo-container" onclick="location.href='index.html'">
+        <img src="images/logo.jpg" alt="Logo">
+        <h1><span class="cyan">HomieCraft</span> <span class="purple">SMP</span></h1>
+    </div>
+    <div class="burger" onclick="toggleMenu()">☰</div>
+</header>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+    <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="regelwerk.html">Regelwerk</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="raenge.html">Ränge</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="bewerbung">Bewerbung</a></li>
+    </ul>
+</nav>
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<section id="ranks" class="section">
+    <h2>Ränge auf HomieCraft SMP</h2>
+
+    <!-- BUTTONS -->
+    <div class="rank-buttons">
+        <button onclick="scrollToRank('spieler')">Spieler</button>
+        <button onclick="scrollToRank('premium')">Premium</button>
+        <button onclick="scrollToRank('supreme')">Supreme</button>
+        <button onclick="scrollToRank('vip')">VIP</button>
+        <button onclick="scrollToRank('homie')">Homie</button>
+        <button onclick="scrollToRank('creator')">Creator</button>
+        <button onclick="scrollToRank('builder')">Builder</button>
+        <button onclick="scrollToRank('support')">Support</button>
+        <button onclick="scrollToRank('mod')">Moderator</button>
+        <button onclick="scrollToRank('developer')">Developer</button>
+        <button onclick="scrollToRank('admin')">Admin</button>
+        <button onclick="scrollToRank('owner')">Owner</button>
+    </div>
+
+    <!-- HIRN: WIR SUCHEN -->
+    <div class="hiring">
+        <strong>Wir suchen aktuell:</strong> Creator & Builder für Bau-Projekte und Community-Events!
+        
+    </div>
+    <div class="hiring">
+        Es gibt keinen Shop, also kein P2Win! Alle "User Ränge" sind duch Ingame Geld, Spielzeit und Events erhältlich.
+  
+    </div>
+
+
+    
+    
+    <!-- ALLE KARTEN -->
+    <div class="info-grid">
+        <div class="card rank-spieler" id="spieler">
+            <h3>Spieler</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-spieler">Spieler</span></p>
+            <p><strong>Commands:</strong> /home, /spawn, /tpa, /rtp</p>
+            <p>Teilnahme an Events, Survival & Community-Aktivitäten.</p>
+            <p>Chatzugang und tägliche Belohnungen.</p>
+        </div>
+        
+        <div class="card rank-premium" id="premium">
+            <h3>Premium</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-premium">Premium</span></p>
+            <p><strong>Commands:</strong> Alle Spieler-Commands + /back, exklusive Items</p>
+            <p>Kosmetische Extras, Priorität bei Events.</p>
+            <p>Erweiterte Features im Spielmodus.</p>
+        </div>
+        
+        <div class="card rank-supreme" id="supreme">
+            <h3>Supreme</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-supreme">Supreme</span></p>
+            <p><strong>Commands:</strong> Alle Spieler-Commands + /back, exklusive Items</p>
+            <p>Kosmetische Extras, Priorität bei Events.</p>
+            <p>Erweiterte Features im Spielmodus.</p>
+        </div>
+
+        <div class="card rank-vip" id="vip">
+            <h3>VIP</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-vip">VIP</span></p>
+            <p><strong>Commands:</strong> Zusätzliche /home Punkte, VIP-Items, exklusive Skins</p>
+            <p>Teilnahme an VIP-Events und Server-Boni.</p>
+        </div>
+
+        <div class="card rank-homie" id="homie">
+            <h3>Homie</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-homie">HOMIE</span></p>
+            <p><strong>Commands:</strong> /home, /tpa, Community-Boni</p>
+            <p>Exklusives Homie-Tag, Chatfarbe & Events.</p>
+        </div>
+
+        <div class="card rank-creator" id="creator">
+            <h3>Creator</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-creator">Creator</span></p>
+            <p><strong>Commands:</strong> Alle Homie-Commands + Bauwerkzeuge & kreative Items</p>
+            <p>Teilnahme an Bau-Projekten, exklusive Community-Challenges.</p>
+            <p>Eigene Bau-Projekte leiten und Events gestalten.</p>
+        </div>
+
+
+
+        
+        
+<h2>
+    
+    Team Ränge
+    
+</h2>
+      <div class="info-grid">  
+        <div class="card rank-builder" id="builder">
+            <h3>Builder</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-builder">Builder</span></p>
+            <p><strong>Commands:</strong> Alle Creator-Commands + Spezial-Baustellen & Bau-Kommandos</p>
+            <p>Unterstützt Creator bei Projekten, Gestaltung von Event-Bauten.</p>
+            <p>Exklusive Bauwerkzeuge & Planungsrechte.</p>
+        </div>
+
+        <div class="card rank-support" id="support">
+            <h3>Support</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-support">Sup</span></p>
+            <p><strong>Commands:</strong> Support-Kommandos, Spielerhilfe, Chat-Moderation</p>
+            <p>Unterstützt Mod-Team bei Regeln & Events.</p>
+        </div>
+
+        <div class="card rank-mod" id="mod">
+            <h3>Moderator</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-mod">Mod</span></p>
+            <p><strong>Commands:</strong> Ban/Kick, Chat-Kontrolle, Event-Moderation</p>
+            <p>Community-Schutz & Durchsetzung der Regeln.</p>
+        </div>
+
+        <div class="card rank-developer" id="developer">
+            <h3>Developer</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-developer">Dev</span></p>
+            <p><strong>Commands:</strong> Alle technischen Admin-Kommandos, Plugin-Management</p>
+            <p>Server-Design, Entwicklung & Updates.</p>
+        </div>
+
+        <div class="card rank-admin" id="admin">
+            <h3>Admin</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-admin">ADMIN</span></p>
+            <p><strong>Commands:</strong> Vollzugriff auf Admin-Tools, Event-Management</p>
+            <p>Server-Wartung & Kontrolle über Team-Aktivitäten.</p>
+        </div>
+
+        <div class="card rank-owner" id="owner">
+            <h3>Owner</h3>
+            <p><strong>Prefix:</strong> <span class="prefix prefix-owner">OWNER</span></p>
+            <p><strong>Commands:</strong> Alle Commands, komplette Server-Verwaltung</p>
+            <p>Endverantwortung, Server-Entwicklung & Teamleitung.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <p>© 2026 HomieCraft SMP</p>
+        <p>IP: homiecraft-smp.aternos.me</p>
+        <p id="footer-version">Version: ...</p>
+        <p>Made with ❤️ for the Homies</p>
+        <p class="dev">Developed and created by LucaMaximal</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function scrollToRank(rankId){
+    const el = document.getElementById(rankId);
+    if(el){
+        window.scrollTo({top: el.offsetTop - 100, behavior: 'smooth'});
+    }
+}
+</script>
+</body>
+</html>
