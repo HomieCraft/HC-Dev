@@ -1,0 +1,217 @@
+:root{
+    --bg-dark:#0f1117;
+    --bg-card:#1a1c23;
+    --cyan:#00e5ff;
+    --purple:#a855f7;
+    --text-light:#e4e4e7;
+    --text-muted:#9ca3af;
+    --owner:#b91c1c;
+    --admin:#ef4444;
+    --developer:#55FFFF;
+    --mod:#f87171;
+    --support:#facc15;
+    --builder:#22c55e;
+    --creator:#ec4899;
+    --homie:#a855f7;
+    --vip:#f5f5f5;
+    --supreme:#1e3a8a;
+    --premium:#f59e0b;
+    --spieler:#9ca3af;
+}
+
+/* GLOBAL RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+    font-family:'Rajdhani',sans-serif;
+    background:linear-gradient(180deg,#0f1117,#0b0d13);
+    color:var(--text-light);
+    overflow-x:hidden;
+    position:relative;
+    /*perspective:1px;
+    transform-style:preserve-3d;*/
+    padding-top:80px; /* Abstand wegen fixed Header */
+}
+/* PARTICLES + FOG LAYER */
+#particles, .fog{
+    position:fixed;
+    top:0;left:0;width:100%;height:100%;
+    pointer-events:none;
+    z-index:-1;
+}
+.fog{background:rgba(15,17,23,0.15);}
+
+/* HEADER */
+header{
+    position:fixed;top:0;width:100%;padding:15px 40px;
+    background:rgba(15,17,23,0.8);backdrop-filter:blur(10px);
+    display:flex;justify-content:space-between;align-items:center;z-index:1000;
+}
+.logo-container{display:flex;align-items:center;cursor:pointer;}
+.logo-container img{width:45px;margin-right:12px;}
+header h1{font-family:'Orbitron',sans-serif;font-size:22px;}
+.cyan{color:var(--cyan);text-shadow:0 0 8px var(--cyan);}
+.purple{color:var(--purple);text-shadow:0 0 8px var(--purple);}
+.burger{font-size:26px;cursor:pointer;transition:.3s;}
+.burger:hover{color:var(--cyan);}
+
+/* SIDEBAR */
+#sidebar{position:fixed;right:-300px;top:0;width:300px;height:100%;background:#11141c;padding:80px 30px;transition:.4s ease;z-index:1001;}
+#sidebar.active{right:0;}
+#sidebar ul{list-style:none;}
+#sidebar li{margin:20px 0;}
+#sidebar a{text-decoration:none;color:var(--text-light);font-size:18px;transition:.3s;}
+#sidebar a:hover{color:var(--cyan);text-shadow:0 0 8px var(--cyan);}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(5px);display:none;z-index:1000;}
+#overlay.active{display:block;}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    padding:0 20px;position:relative;overflow:hidden;
+}
+.hero-title{font-family:'Orbitron',sans-serif;font-size:42px;margin-bottom:15px;opacity:0;transform:translateY(20px);transition:opacity 1s ease, transform 1s ease;}
+.gradient-text{background:linear-gradient(90deg,var(--cyan),var(--purple));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientMove 5s linear infinite;}
+@keyframes gradientMove{to{background-position:200% center;}}
+.subtitle{margin:10px 0 25px;color:var(--text-muted);opacity:0;transform:translateY(20px);transition:opacity 1s ease 0.3s, transform 1s ease 0.3s;}
+.hero-buttons{display:flex;gap:15px;opacity:0;transform:translateY(20px);transition:opacity 1s ease 0.6s, transform 1s ease 0.6s;}
+.hero-buttons .btn-primary,.hero-buttons .btn-secondary{padding:12px 25px;border-radius:8px;border:none;cursor:pointer;font-weight:600;transition:.3s;}
+.btn-primary{background:var(--cyan);color:#000;}
+.btn-primary:hover{box-shadow:0 0 15px var(--cyan);}
+.btn-secondary{background:var(--purple);color:#fff;}
+.btn-secondary:hover{box-shadow:0 0 15px var(--purple);}
+
+/* SECTIONS */
+.section{
+    padding:120px 10%;
+    text-align:center;
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity 1s ease, transform 1s ease;
+    position:relative;
+    z-index:1;
+}
+.section h2{font-family:'Orbitron',sans-serif;margin-bottom:40px;}
+.card{background:var(--bg-card);padding:25px;border-radius:12px;transition:.3s ease, transform .3s;cursor:pointer;}
+.card:hover{
+transform:translateY(-6px) scale(1.02);
+box-shadow:
+0 0 15px var(--cyan),
+0 0 25px var(--purple);
+}
+.info-grid,.gamemode-grid,.tips-grid,.team-grid{display:grid;gap:25px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.coming{opacity:.85;}
+
+/* TEAM COLORS */
+.rank-owner{color:var(--owner);font-weight:bold;text-shadow:0 0 8px var(--owner);}
+.rank-admin{color:var(--admin);font-weight:bold;text-shadow:0 0 4px var(--admin);}
+.rank-developer{color:var(--developer);font-weight:bold;text-shadow:0 0 4px var(--developer);}
+.rank-mod{color:var(--mod);font-weight:bold;text-shadow:0 0 4px var(--mod);}
+.rank-support{color:var(--support);}
+.rank-builder{color:var(--builder);}
+.rank-creator{color:var(--creator);font-weight:bold;text-shadow:0 0 8px var(--creator);}
+.rank-homie{color:var(--homie);font-weight:bold;text-shadow:0 0 8px var(--homie);}
+.rank-vip{color:var(--vip);font-weight:bold;text-shadow:0 0 4px var(--vip);}
+.rank-supreme{color:var(--supreme);}
+.rank-premium{color:var(--premium);}
+.rank-spieler{color:var(--spieler);}
+
+/* ACCORDION */
+.accordion-header{padding:15px;background:var(--bg-card);cursor:pointer;border-radius:8px;margin-bottom:5px;transition:0.3s;}
+.accordion-header:hover{box-shadow:0 0 15px var(--cyan);}
+.accordion-content{max-height:0;overflow:hidden;transition:max-height .4s ease;background:#0d1016;border-radius:8px;padding:0 15px;}
+
+/* FOOTER */
+footer{background:#0b0d13;padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,.05);}
+footer p{margin:6px 0;}
+.dev{color:var(--purple);text-shadow:0 0 8px var(--purple);}
+
+/* SCROLL TOP */
+#scrollTop{position:fixed;bottom:25px;right:25px;background:var(--cyan);color:#000;border:none;padding:12px 16px;border-radius:50%;cursor:pointer;display:none;transition:.3s;z-index:2000;}
+#scrollTop:hover{box-shadow:0 0 15px var(--cyan);}
+
+/* RESPONSIVE */
+@media(max-width:768px){.hero-title{font-size:30px;}header{padding:15px 20px;}#sidebar{width:75%;}}
+
+.hero-info{
+    margin-bottom:25px;
+    font-size:18px;
+    color:var(--text-light);
+}
+
+.hero-info p{
+    margin:4px 0;
+}
+
+.screenshots{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.screenshots img{
+    width:100%;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.screenshots img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px var(--cyan);
+}
+
+.section h2{
+    position:relative;
+}
+
+.section h2::after{
+    content:"";
+    display:block;
+    width:120px;
+    height:3px;
+    margin:12px auto;
+    background:linear-gradient(90deg,var(--cyan),var(--purple));
+    box-shadow:0 0 10px var(--cyan);
+}
+/* ---------------------- */
+/* RANG BUTTONS FARBEN     */
+/* ---------------------- */
+.rank-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.rank-buttons button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Farben passend zum Rang */
+.rank-buttons button:nth-child(1) { background: var(--spieler); color:#000; }      /* SPIELER */
+.rank-buttons button:nth-child(2) { background: var(--premium); }                  /* PREMIUM */
+.rank-buttons button:nth-child(3) { background: var(--supreme); }                  /* SUPREME */
+.rank-buttons button:nth-child(4) { background: var(--vip); color:#000; }          /* VIP */
+.rank-buttons button:nth-child(5) { background: var(--homie); }                    /* HOMIE */
+.rank-buttons button:nth-child(6) { background: var(--creator); }                  /* CREATOR */
+.rank-buttons button:nth-child(7) { background: var(--builder); }                  /* BUILDER */
+.rank-buttons button:nth-child(8) { background: var(--support); color:#000; }      /* SUPPORT */
+.rank-buttons button:nth-child(9) { background: var(--mod); }                       /* MOD */
+.rank-buttons button:nth-child(10) { background: var(--developer); color:#000; }    /* DEVELOPER */
+.rank-buttons button:nth-child(11) { background: var(--admin); }                    /* ADMIN */
+.rank-buttons button:nth-child(12) { background: var(--owner); }                    /* OWNER */
+
+/* Hover Effekt */
+.rank-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px currentColor;
+}
