@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>HomieCraft SMP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- PARTICLE HINTERGRUND -->
+<canvas id="particles"></canvas>
+<div class="fog"></div>
+
+<!-- HEADER -->
+<header>
+    <div class="logo-container" onclick="location.href='index.html'">
+        <img src="images/logo.jpg" alt="Logo">
+        <h1>
+            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
+        </h1>
+    </div>
+    <div class="burger" onclick="toggleMenu()">☰</div>
+</header>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+    <ul>
+        <li><a href="#info">Info</a></li>
+        <li><a href="#features">Server Features</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
+        <li><a href="#gamemodes">Spielmodi</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#tipps">Tipps</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="regelwerk.html">Regelwerk</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="raenge.html">Ränge</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="bewerbung">Bewerbung</a></li>
+    </ul>
+</nav>
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <h2 class="hero-title">
+        Willkommen auf <span class="gradient-text">HomieCraft SMP</span>
+    </h2>
+    <p class="subtitle">Dein Abenteuer beginnt hier.</p>
+    <div class="hero-info">
+    <p><strong>IP:</strong> homiecraft-smp.aternos.me</p>
+    <p><strong>Version:</strong> 1.20.1 – 1.21.11</p>
+    <p><strong>Edition:</strong> Java</p>
+    <p><strong>Whitelist:</strong> Keine, Open Server</p>
+</div>
+    <div class="hero-buttons">
+        <button onclick="copyIP()" class="btn-primary">IP kopieren</button>
+        <a href="#info" class="btn-secondary">Jetzt beitreten</a>
+    </div>
+    <p id="server-status" class="live-status">Lade Serverstatus...</p>
+</section>
+
+<!-- SERVER INFO -->
+<section id="info" class="section">
+    <h2>Server Informationen</h2>
+    <div class="info-grid">
+        <div class="card" id="status-card">Status: ...</div>
+        <div class="card" id="players-card">Spieler: ...</div>
+        <div class="card">Max Spieler: 30<br>
+            Version: 1.20.1 - 1.21.11<br>
+            Edition: Java<br>
+            IP: homiecraft-smp.aternos.me
+        </div>
+   
+        <div class="card">
+            <p>Kein P2Win</p>
+            <p>News findest du <a href="news.html">hier</a></p>
+            
+        </div>
+        
+    </div>
+</section>
+
+<!-- SERVER FEATURES -->
+<section id="features" class="section">
+    <h2>Server Features</h2>
+
+    <div class="tips-grid">
+
+        <div class="card">⚔️ Survival SMP</div>
+
+        <div class="card">🌍 Random Teleport</div>
+
+        <div class="card">🏠 /sethome & /home</div>
+
+        <div class="card">💬 Private Nachrichten</div>
+
+        <div class="card">🎉 Events</div>
+
+         <div class="card coming">- <span style="color:#8B0000;">Coming Soon!</span></div>
+
+    </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section id="screenshots" class="section">
+    <h2>Server Screenshots</h2>
+
+    <div class="screenshots">
+
+        <img src="images/spawn.jpg">
+        <img src="images/base.jpg">
+        <img src="images/world.jpg">
+
+    </div>
+
+</section>
+
+<!-- SPIELMODI -->
+<section id="gamemodes" class="section">
+    <h2>Spielmodi</h2>
+    <div class="gamemode-grid">
+        <div class="card active">SMP</div>
+        <div class="card coming">- <span style="color:#8B0000;">Coming Soon!</span></div>
+        <div class="card coming">- <span style="color:#8B0000;">Coming Soon!</span></div>
+        <div class="card coming">- <span style="color:#8B0000;">Coming Soon!</span></div>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section">
+    <h2>Unser Team</h2>
+    <div class="team-grid" id="team-container">
+        <!-- JS generiert -->
+    </div>
+</section>
+
+<!-- COMMANDS -->
+<section id="commands" class="section">
+    <h2>Commands</h2>
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">Spieler Commands</div>
+            <div class="accordion-content">
+                <ul>
+                    <li>/spawn</li>
+                    <li>/home</li>
+                    <li>/tpa</li>
+                    <li>/tpahere</li>
+                    <li>/rtp</li>
+                    <li>/msg</li>
+                    <li>/help</li>
+                </ul>
+            </div>
+        </div>
+        
+        <p>Weitere Infos zu den Commands von bestimmten Ränge sind auf der Ränge Seite. Klicke <a href="raenge.html">hier</a> um dort hin zu kommen.</p>
+    </div>
+</section>
+
+<!-- TIPPS -->
+<section id="tipps" class="section">
+    <h2>Tipps & Tricks</h2>
+    <div class="tips-grid">
+        <div class="card">Nutze die Schutzzeit fürs farmen.</div>
+        <div class="card">Baue deine Base gut versteckt.</div>
+        <div class="card">Sichere deine Items regelmäßig.</div>
+        <div class="card">Nutze /sethome sinnvoll.</div>
+        <div class="card">Handle mit anderen Spielern.</div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+    <h2>FAQ</h2>
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">Wie trete ich bei?</div>
+            <div class="accordion-content">
+                Füge die IP in deiner Minecraft Java Edition hinzu.
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">Welche Version?</div>
+            <div class="accordion-content">
+                1.20.1 – 1.21.11
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <p>© 2026 HomieCraft SMP</p>
+        <p>IP: homiecraft-smp.aternos.me</p>
+        <p id="footer-version">Version: ...</p>
+        <p>Made with ❤️ for the Homies</p>
+        <p class="dev">Developed and created by LucaMaximal</p>
+    </div>
+</footer>
+
+<!-- SCROLL TOP -->
+<button id="scrollTop" onclick="scrollToTop()">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
