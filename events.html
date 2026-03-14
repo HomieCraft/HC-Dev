@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Events – HomieCraft SMP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- PARTICLE HINTERGRUND -->
+<canvas id="particles"></canvas>
+<div class="fog"></div>
+
+<!-- HEADER (wie Index) -->
+<header>
+    <div class="logo-container" onclick="location.href='index.html'">
+        <img src="images/logo.jpg" alt="Logo">
+        <h1>
+            <span class="cyan">HomieCraft</span> <span class="purple">SMP</span>
+        </h1>
+    </div>
+    <div class="burger" onclick="toggleMenu()">☰</div>
+</header>
+
+<!-- SIDEBAR (wie Index) -->
+<nav id="sidebar">
+    <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="regelwerk.html">Regelwerk</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="raenge.html">Ränge</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="bewerbung">Bewerbung</a></li>
+    </ul>
+</nav>
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<!-- EVENTS SECTION -->
+<section class="section">
+    <h2>Events auf HomieCraft SMP</h2>
+
+    <div class="info-grid">
+        <!-- Upcoming Events -->
+        <!--<div class="card upcoming">
+            <h3>[05.03.2026] Bau-Contest</h3>
+            <p>Teilnahme offen für alle Spieler. Gewinner erhalten Ingame-Money und besondere Items.</p>
+        </div>
+        <div class="card upcoming">
+            <h3>[12.03.2026] PvP Turnier</h3>
+            <p>Kämpfe gegen andere Spieler in einem fairen PvP Turnier. Preise warten auf die Sieger!</p>
+        </div>
+
+        <!-- Past Event -->
+        <!--<div class="card past">
+            <h3>[28.02.2026] Community-Event</h3>
+            <p>Erfolgreiches Bau-Contest Event, Gewinner wurden im News-Bereich bekannt gegeben.</p>
+        </div>-->
+        <div class="card upcoming">
+            <h3>Zur Zeit gibt es noch keine Events</h3>
+            <p>Wenn du eine Idee für ein Event hast, melde dich bei der Adminstration oder bei einem Owner. Bitte spamme keinen voll und respektiere wenn sie grad keine Zeit haben.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER (wie Index) -->
+<footer>
+    <div class="footer-content">
+        <p>© 2026 HomieCraft SMP</p>
+        <p>IP: homiecraft-smp.aternos.me</p>
+        <p id="footer-version">Version: ...</p>
+        <p>Made with ❤️ for the Homies</p>
+        <p class="dev">Developed and created by LucaMaximal</p>
+    </div>
+</footer>
+
+<!-- SCROLL TOP (wie Index) -->
+<button id="scrollTop" onclick="scrollToTop()">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
