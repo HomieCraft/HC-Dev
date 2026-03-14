@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>HomieCraft Team Bewerbung</title>
+<style>
+body {background:#0f172a; font-family:Arial,sans-serif; color:white; margin:0; padding:0;}
+header {background:#1e293b; padding:30px 20px; text-align:center; box-shadow:0 2px 15px rgba(0,0,0,0.5);}
+header h1 {color:#22c55e; font-size:36px; margin-bottom:10px;}
+header p, header li {color:#cbd5e1; font-size:16px; line-height:1.5;}
+.container {background:#1e293b; padding:30px; border-radius:12px; width:700px; max-width:95%; margin:40px auto; box-shadow:0 0 25px rgba(0,0,0,0.6);}
+label {display:block; margin-top:15px; font-weight:bold; color:#cbd5e1;}
+input, select, textarea, button {width:100%; padding:12px; margin-top:5px; border-radius:6px; border:none; background:#334155; color:white; font-size:14px; box-sizing:border-box;}
+textarea {resize: vertical;}
+button {margin-top:25px; padding:15px; border:none; border-radius:6px; background:#22c55e; font-size:18px; font-weight:bold; cursor:pointer; transition:0.2s;}
+button:hover {background:#16a34a;}
+.page {display:none;}
+.page.active {display:block;}
+.progress {margin-bottom:20px; background:#334155; border-radius:6px; overflow:hidden; height:10px;}
+.progress-bar {height:10px; background:#22c55e; width:0%; transition:0.3s;}
+.error {color:#f87171; font-size:12px; margin-top:3px; display:block;}
+#status {margin-top:20px; text-align:center; font-weight:bold; color:#facc15;}
+ul {text-align:left; padding-left:20px;}
+.info-box {background:#334155; padding:15px; border-radius:8px; margin-top:15px; font-size:14px; color:#cbd5e1;}
+.info-box a {color:#22c55e; text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>HomieCraft Team Bewerbung</h1>
+<p>Bevor du dich bewirbst, bitte alles sorgfältig lesen:</p>
+<ul>
+<li>Server läuft über <strong>Aternos</strong>. <a href="https://aternos.org/" target="_blank">Hier anmelden</a>.</li>
+<li>Simple Voice Chat Mod wird benötigt. Anleitung: <a href="https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat" target="_blank">Download & Anleitung</a>.</li>
+<li>GitHub Account notwendig, Bewerbung wird als Issue erstellt. <a href="https://github.com/join" target="_blank">GitHub Account erstellen</a>.</li>
+<li>Supporter/Builder können sich direkt bewerben.</li>
+<li>Moderator → nur wenn du bereits Supporter warst.</li>
+<li>Developer → Kenntnisse in Programmiersprachen & Plugins erforderlich.</li>
+<li>Creator → Content-Erfahrung erforderlich.</li>
+<li>Admin/Owner → keine direkte Bewerbung möglich.</li>
+<li>Builder muss nur bauen, wenn angenommen.</li>
+<li>Mindestalter 10 Jahre.</li>
+<li>Jeder Bewerber muss sich an die Regeln des Servers halten.</li>
+<li>Alle Felder korrekt ausfüllen, Mindestzeichen beachten.</li>
+</ul>
+<div class="info-box">
+<h3>Tipp für Anfänger:</h3>
+<p>Wenn du Aternos, GitHub oder den Voice Chat noch nicht benutzt hast, klicke auf die Links oben und erstelle zuerst die Accounts. Du kannst dann deine Informationen eintragen.</p>
+<p>Mit der Bewerbung erklärst du dich bereit, dich an die Regeln zu halten.</p>
+</div>
+<button type="button" onclick="showPage(0)">Zur Bewerbung →</button>
+</header>
+
+<div class="container">
+<div class="progress"><div class="progress-bar" id="progress"></div></div>
+<form id="form">
+
+<!-- Seite 1: Basisinformationen -->
+<div class="page" id="page0">
+<label>Minecraft Name *</label>
+<input type="text" id="name" placeholder="Dein Minecraft-Name">
+<span class="error" id="nameError"></span>
+
+<label>Alter * (mindestens 10 Jahre)</label>
+<input type="number" id="alter" placeholder="z.B. 16">
+<span class="error" id="alterError"></span>
+
+<label>Aternos Benutzername (optional)</label>
+<input type="text" id="aternos" placeholder="Dein Aternos-Username">
+<span class="error" id="aternosError"></span>
+
+<label>Simple Voice Chat Mod installiert? *</label>
+<select id="voice">
+<option value="">Bitte wählen</option>
+<option>Ja</option>
+<option>Nein</option>
+</select>
+<span class="error" id="voiceError"></span>
+
+<label>Welchen Rang hattest du vorher? *</label>
+<select id="prevRang">
+<option value="">Bitte wählen</option>
+<option>Keinen</option>
+<option>Premium</option>
+<option>Supreme</option>
+<option>VIP</option>
+<option>Homie</option>
+<option>Supporter</option>
+<option>Builder</option>
+<option>Moderator</option>
+<option>Developer</option>
+<option>Creator</option>
+</select>
+<span class="error" id="prevRangError"></span>
+
+<label>Für welchen Rang bewirbst du dich? *</label>
+<select id="rang">
+<option value="">Bitte wählen</option>
+<option>Supporter</option>
+<option>Builder</option>
+<option>Moderator</option>
+<option>Developer</option>
+<option>Creator</option>
+<option disabled>Admin</option>
+<option disabled>Owner</option>
+</select>
+<span class="error" id="rangError"></span>
+
+<button type="button" onclick="nextPage(0)">Weiter →</button>
+</div>
+
+<!-- Seite 2: Spiel & Erfahrung -->
+<div class="page" id="page1">
+<label>Wie lange spielst du schon Minecraft? *</label>
+<input type="text" id="mczeit" placeholder="z.B. 5 Jahre">
+<span class="error" id="mczeitError"></span>
+
+<label>Wie viele Stunden pro Woche kannst du spielen? *</label>
+<input type="text" id="zeit" placeholder="z.B. 10-15 Stunden">
+<span class="error" id="zeitError"></span>
+
+<div id="dynamicQuestions"></div>
+
+<button type="button" onclick="prevPage(1)">← Zurück</button>
+<button type="button" onclick="nextPage(1)">Weiter →</button>
+</div>
+
+<!-- Seite 3: Motivation & Stärken -->
+<div class="page" id="page2">
+<label>Warum willst du ins Team? *</label>
+<textarea id="warum" rows="5" placeholder="Mindestens 20 Zeichen"></textarea>
+<span class="error" id="warumError"></span>
+
+<label>Was sind deine Stärken? *</label>
+<textarea id="staerken" rows="4" placeholder="Mindestens 10 Zeichen"></textarea>
+<span class="error" id="staerkenError"></span>
+
+<button type="button" onclick="prevPage(2)">← Zurück</button>
+<button type="button" onclick="nextPage(2)">Weiter →</button>
+</div>
+
+<!-- Seite 4: Übersicht -->
+<div class="page" id="page3">
+<h3>Überprüfung deiner Angaben</h3>
+<div id="review" style="margin-bottom:20px;"></div>
+
+<button type="button" onclick="prevPage(3)">← Zurück</button>
+<button type="submit">Bewerbung abschicken</button>
+</div>
+
+</form>
+<div id="status"></div>
+</div>
+
+<script>
+let currentPage = 0;
+function showPage(page){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page'+page).classList.add('active');
+    currentPage=page;
+    updateProgress();
+}
+
+function updateProgress(){
+    document.getElementById("progress").style.width=(currentPage/3*100)+"%";
+}
+
+function clearErrors(){document.querySelectorAll('.error').forEach(e=>e.innerText="");}
+
+function nextPage(page){
+    clearErrors();
+    let valid=true;
+    const name=document.getElementById("name").value.trim();
+    const alter=parseInt(document.getElementById("alter").value);
+    const rang=document.getElementById("rang").value;
+    const prevRang=document.getElementById("prevRang").value;
+    const voice=document.getElementById("voice").value;
+    const mczeit=document.getElementById("mczeit").value.trim();
+    const zeit=document.getElementById("zeit").value.trim();
+    const warum=document.getElementById("warum").value.trim();
+    const staerken=document.getElementById("staerken").value.trim();
+    const namePattern=/^[a-zA-Z0-9_]{3,16}$/;
+
+    if(page===0){
+        if(!namePattern.test(name)){document.getElementById("nameError").innerText="3-16 Zeichen, nur Buchstaben, Zahlen, Unterstriche"; valid=false;}
+        if(!alter || alter<10){document.getElementById("alterError").innerText="Mindestalter 10 Jahre"; valid=false;}
+        if(!rang){document.getElementById("rangError").innerText="Bitte Bewerbungsrang wählen"; valid=false;}
+        if((rang==="Moderator") && prevRang!=="Supporter"){document.getElementById("rangError").innerText="Moderator nur, wenn bereits Supporter"; valid=false;}
+        if((rang==="Developer") && prevRang!=="Developer" && prevRang!=="Supporter"){document.getElementById("rangError").innerText="Developer nur mit Erfahrung"; valid=false;}
+        if(!voice){document.getElementById("voiceError").innerText="Bitte beantworten"; valid=false;}
+    }
+
+    if(page===1){
+        if(mczeit.length<3){document.getElementById("mczeitError").innerText="Bitte realistische Spielzeit angeben"; valid=false;}
+        if(zeit.length<2){document.getElementById("zeitError").innerText="Bitte Stunden/Woche angeben"; valid=false;}
+        showDynamicQuestions();
+        // Prüfe dynamische Felder
+        const dynInputs=document.querySelectorAll("#dynamicQuestions input,#dynamicQuestions textarea");
+        dynInputs.forEach(inp=>{
+            if(inp.hasAttribute("required") && !inp.value.trim()){
+                inp.nextElementSibling? inp.nextElementSibling.innerText="Pflichtfeld" : null;
+                valid=false;
+            }
+        });
+    }
+
+    if(page===2){
+        if(warum.length<20){document.getElementById("warumError").innerText="Mindestens 20 Zeichen"; valid=false;}
+        if(staerken.length<10){document.getElementById("staerkenError").innerText="Mindestens 10 Zeichen"; valid=false;}
+    }
+
+    if(!valid) return;
+    document.getElementById("page"+page).classList.remove("active");
+    currentPage=page+1;
+    document.getElementById("page"+currentPage).classList.add("active");
+    updateProgress();
+    if(currentPage===3) showReview();
+}
+
+// vorherige Seite
+function prevPage(page){
+    document.getElementById("page"+page).classList.remove("active");
+    currentPage=page-1;
+    document.getElementById("page"+currentPage).classList.add("active");
+    updateProgress();
+}
+
+// Dynamische Fragen
+function showDynamicQuestions(){
+    const rang=document.getElementById("rang").value;
+    const container=document.getElementById("dynamicQuestions");
+    container.innerHTML="";
+    if(rang==="Builder"){
+        container.innerHTML=`
+<label>Bauerfahrung *</label>
+<textarea id="builderExp" rows="3" required></textarea>
+<label>Bauidee / Skizzen</label>
+<textarea id="builderIdea" rows="3"></textarea>
+<label>Lieblingsbau-Stil *</label>
+<input type="text" id="builderStyle" required>
+<label>Lieblingsbauprojekt *</label>
+<input type="text" id="builderFav" required>`;
+    } else if(rang==="Moderator"){
+        container.innerHTML=`
+<label>Regelverstöße Umgang *</label>
+<textarea id="modRegel" rows="3" required></textarea>
+<label>Moderation Erfahrung *</label>
+<textarea id="modExp" rows="3" required></textarea>
+<label>Lieblingsregel *</label>
+<input type="text" id="modRuleFav" required>
+<label>Teamfähigkeit *</label>
+<input type="text" id="modTeam" required>`;
+    } else if(rang==="Developer"){
+        container.innerHTML=`
+<label>Programmiersprachen *</label>
+<input type="text" id="devLangs" required>
+<label>Plugin/Mod Erfahrung *</label>
+<textarea id="devExp" rows="3" required></textarea>
+<label>Lieblingsprojekt *</label>
+<input type="text" id="devFavProject" required>
+<label>Bevorzugte Plugins/Tools *</label>
+<input type="text" id="devPrefPlugins" required>`;
+    } else if(rang==="Creator"){
+        container.innerHTML=`
+<label>Content-Art *</label>
+<input type="text" id="creatorType" required>
+<label>Portfolio/Channel *</label>
+<input type="text" id="creatorLink" required>
+<label>Zielgruppe *</label>
+<input type="text" id="creatorTarget" required>
+<label>Lieblingsprojekt *</label>
+<input type="text" id="creatorFav" required>`;
+    }
+}
+
+// Review-Seite
+function showReview(){
+    const name=document.getElementById("name").value.trim();
+    const alter=document.getElementById("alter").value;
+    const aternos=document.getElementById("aternos").value.trim() || "Nicht angegeben";
+    const rang=document.getElementById("rang").value;
+    const prevRang=document.getElementById("prevRang").value;
+    const mczeit=document.getElementById("mczeit").value.trim();
+    const zeit=document.getElementById("zeit").value.trim();
+    const warum=document.getElementById("warum").value.trim();
+    const staerken=document.getElementById("staerken").value.trim();
+    const voice=document.getElementById("voice").value;
+
+    let extra="";
+    const dynInputs=document.querySelectorAll("#dynamicQuestions input,#dynamicQuestions textarea");
+    dynInputs.forEach(inp=>{
+        extra+=`<b>${inp.previousElementSibling.innerText.replace('*','')}</b>: ${inp.value}<br>`;
+    });
+
+    document.getElementById("review").innerHTML=`
+<b>Minecraft Name:</b> ${name}<br>
+<b>Rang:</b> ${rang}<br>
+<b>Alter:</b> ${alter}<br>
+<b>Aternos:</b> ${aternos}<br>
+<b>Simple Voice Chat:</b> ${voice}<br>
+<b>Vorheriger Rang:</b> ${prevRang}<br>
+<b>Spielzeit:</b> ${mczeit}<br>
+<b>Stunden/Woche:</b> ${zeit}<br>
+${extra}
+<b>Motivation:</b> ${warum}<br>
+<b>Stärken:</b> ${staerken}<br>`;
+}
+
+// GitHub Issue erstellen
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name=document.getElementById("name").value.trim();
+    const rang=document.getElementById("rang").value;
+    const alter=document.getElementById("alter").value;
+    const aternos=document.getElementById("aternos").value.trim() || "Nicht angegeben";
+    const prevRang=document.getElementById("prevRang").value;
+    const voice=document.getElementById("voice").value;
+    const mczeit=document.getElementById("mczeit").value.trim();
+    const zeit=document.getElementById("zeit").value.trim();
+    const warum=document.getElementById("warum").value.trim();
+    const staerken=document.getElementById("staerken").value.trim();
+
+    let extraText="";
+    const dynInputs=document.querySelectorAll("#dynamicQuestions input,#dynamicQuestions textarea");
+    dynInputs.forEach(inp=>{
+        extraText+=`${inp.previousElementSibling.innerText.replace('*','')}: ${inp.value}\n`;
+    });
+
+    const issueTitle=`[Bewerbung] ${name} - ${rang}`;
+    const issueBody=`Minecraft Name: ${name}
+Rang: ${rang}
+Alter: ${alter}
+Aternos: ${aternos}
+Simple Voice Chat: ${voice}
+Vorheriger Rang: ${prevRang}
+Spielzeit: ${mczeit}
+Stunden/Woche: ${zeit}
+${extraText}
+Motivation: ${warum}
+Stärken: ${staerken}`;
+
+    const repo="https://github.com/HomieCraft/HomieCraft-Test/issues/new";
+    const url=`${repo}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
+    window.open(url,"_blank");
+    document.getElementById("status").innerText="GitHub Issue wird geöffnet…";
+});
+</script>
+
+</body>
+</html>
